@@ -1,7 +1,0 @@
-o<_camoff> sub
-
-(remove tool offsets)
-g43 H0
-
-o<_camoff> endsub
-M2

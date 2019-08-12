@@ -1,7 +1,0 @@
-o<_camon> sub
-
-(Apply Camera offsets)
-G43 H9999
-
-o<_camon> endsub
-M2
