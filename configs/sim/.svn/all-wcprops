@@ -1,0 +1,257 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim
+END
+sim.var
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/sim.var
+END
+tripod.ini
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/tripod.ini
+END
+tkemc.ini
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/tkemc.ini
+END
+tracking-test.hal
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/tracking-test.hal
+END
+core_sim9.hal
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/core_sim9.hal
+END
+lathe.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/lathe.xml
+END
+axis_9axis.ini
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/axis_9axis.ini
+END
+sim_mm.tbl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/sim_mm.tbl
+END
+screwcompX.dat
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/screwcompX.dat
+END
+sim.tbl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/sim.tbl
+END
+pyvcp_demo.hal
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/pyvcp_demo.hal
+END
+axis_manualtoolchange.hal
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/axis_manualtoolchange.hal
+END
+axis_mm.ini
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/config/!svn/ver/17/cncrouter/trunk/configs/sim/axis_mm.ini
+END
+lathe.ini
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/lathe.ini
+END
+simulated_limits.hal
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/simulated_limits.hal
+END
+lathe.tbl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/lathe.tbl
+END
+axis.ini
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/axis.ini
+END
+gantry.ini
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/config/!svn/ver/17/cncrouter/trunk/configs/sim/gantry.ini
+END
+random_tc.ini
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/random_tc.ini
+END
+servo_sim.ini
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/servo_sim.ini
+END
+touchy.ini
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/touchy.ini
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/README
+END
+gs2.hal
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/gs2.hal
+END
+lathe.hal
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/lathe.hal
+END
+simpockets.tbl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/simpockets.tbl
+END
+simulated_home.hal
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/simulated_home.hal
+END
+core_sim.hal
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/core_sim.hal
+END
+keystick.ini
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/keystick.ini
+END
+pyvcp_demo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/pyvcp_demo.xml
+END
+sim_mm.var.bak
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/sim_mm.var.bak
+END
+test.vcp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/test.vcp
+END
+check_constraints.hal
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/check_constraints.hal
+END
+sim_mm.var
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/sim_mm.var
+END
+servo_sim.hal
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/servo_sim.hal
+END
+lathe_postgui.hal
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/lathe_postgui.hal
+END
+mini.ini
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/mini.ini
+END
+xemc.ini
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/xemc.ini
+END
+sim.var.bak
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/sim.var.bak
+END
+position_mm.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/config/!svn/ver/17/cncrouter/trunk/configs/sim/position_mm.txt
+END
+sim-xyyz.hal
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/config/!svn/ver/17/cncrouter/trunk/configs/sim/sim-xyyz.hal
+END
+tripodsim.hal
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/tripodsim.hal
+END
+touchy.hal
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/config/!svn/ver/13/cncrouter/trunk/configs/sim/touchy.hal
+END

@@ -1,0 +1,198 @@
+# #######################################
+#
+# CNC Router, x, y slaves, z slaves, a
+#
+# ########################################
+
+
+# ###################################
+# Core EMC/HAL Loads
+# ###################################
+
+# kinematics
+loadrt trivkins
+
+# motion controller, get name and thread periods from ini file
+loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES
+
+# standard components
+loadrt pid num_chan=8 
+
+# hostmot2 driver
+loadrt hostmot2
+
+# load low-level driver
+loadrt [HOSTMOT2](DRIVER) config=[HOSTMOT2](CONFIG)
+
+setp hm2_[HOSTMOT2](BOARD).0.pwmgen.pwm_frequency 40000
+
+setp hm2_[HOSTMOT2](BOARD).0.watchdog.timeout_ns 10000000
+
+
+# ################################################
+# THREADS
+# ################################################
+
+addf hm2_[HOSTMOT2](BOARD).0.read          servo-thread
+
+addf motion-command-handler                servo-thread
+addf motion-controller                     servo-thread
+
+addf pid.0.do-pid-calcs                    servo-thread
+addf pid.1.do-pid-calcs                    servo-thread
+addf pid.2.do-pid-calcs                    servo-thread
+
+addf hm2_[HOSTMOT2](BOARD).0.write         servo-thread
+addf hm2_[HOSTMOT2](BOARD).0.pet_watchdog  servo-thread
+       
+
+# ######################################################
+# Axis-of-motion Specific Configs (not the GUI)
+# ######################################################
+
+
+# ################
+# X [0] Axis
+# ################
+
+# axis enable chain
+newsig emcmot.00.enable bit
+sets emcmot.00.enable FALSE
+net emcmot.00.enable => pid.0.enable
+net emcmot.00.enable => hm2_[HOSTMOT2](BOARD).0.pwmgen.05.enable
+net emcmot.00.enable <= axis.0.amp-enable-out 
+
+# encoder feedback
+setp hm2_[HOSTMOT2](BOARD).0.encoder.05.counter-mode 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.05.filter 1
+setp hm2_[HOSTMOT2](BOARD).0.encoder.05.index-invert 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.05.index-mask 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.05.index-mask-invert 0
+
+setp  hm2_[HOSTMOT2](BOARD).0.encoder.05.scale  [AXIS_0]INPUT_SCALE
+net motor.00.pos-fb hm2_[HOSTMOT2](BOARD).0.encoder.05.position => pid.0.feedback
+net motor.00.pos-fb => axis.0.motor-pos-fb #push copy back to Axis GUI
+
+# set PID loop gains from inifile
+setp pid.0.Pgain [AXIS_0]P
+setp pid.0.Igain [AXIS_0]I
+setp pid.0.Dgain [AXIS_0]D
+setp pid.0.bias [AXIS_0]BIAS
+setp pid.0.FF0 [AXIS_0]FF0
+setp pid.0.FF1 [AXIS_0]FF1
+setp pid.0.FF2 [AXIS_0]FF2
+setp pid.0.deadband [AXIS_0]DEADBAND
+setp pid.0.maxoutput [AXIS_0]MAX_OUTPUT
+
+# position command signals
+setp hm2_[HOSTMOT2](BOARD).0.pwmgen.05.output-type 1 #pwm on pin1, dir on pin2
+setp hm2_[HOSTMOT2](BOARD).0.pwmgen.05.scale  [AXIS_0]OUTPUT_SCALE
+
+net emcmot.00.pos-cmd axis.0.motor-pos-cmd => pid.0.command
+net motor.00.command  pid.0.output  =>  hm2_[HOSTMOT2](BOARD).0.pwmgen.05.value
+
+
+# ################
+# Z1 [1] Axis
+# ################
+
+# axis enable chain
+newsig emcmot.01.enable bit
+sets emcmot.01.enable FALSE
+net emcmot.01.enable => pid.1.enable
+net emcmot.01.enable => hm2_[HOSTMOT2](BOARD).0.pwmgen.07.enable
+net emcmot.01.enable <= axis.1.amp-enable-out 
+
+# encoder feedback
+setp hm2_[HOSTMOT2](BOARD).0.encoder.07.counter-mode 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.07.filter 1
+setp hm2_[HOSTMOT2](BOARD).0.encoder.07.index-invert 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.07.index-mask 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.07.index-mask-invert 0
+
+setp  hm2_[HOSTMOT2](BOARD).0.encoder.01.scale  [AXIS_Z]INPUT_SCALE
+net motor.01.pos-fb hm2_[HOSTMOT2](BOARD).0.encoder.07.position => pid.1.feedback
+net motor.01.pos-fb => axis.1.motor-pos-fb #push copy back to Axis GUI
+
+# set PID loop gains from inifile
+setp pid.1.Pgain [AXIS_Z]P
+setp pid.1.Igain [AXIS_Z]I
+setp pid.1.Dgain [AXIS_Z]D
+setp pid.1.bias [AXIS_Z]BIAS
+setp pid.1.FF0 [AXIS_Z]FF0
+setp pid.1.FF1 [AXIS_Z]FF1
+setp pid.1.FF2 [AXIS_Z]FF2
+setp pid.1.deadband [AXIS_Z]DEADBAND
+setp pid.1.maxoutput [AXIS_Z]MAX_OUTPUT
+
+# position command signals
+setp hm2_[HOSTMOT2](BOARD).0.pwmgen.07.output-type 1 #pwm on pin1, dir on pin2
+setp hm2_[HOSTMOT2](BOARD).0.pwmgen.07.scale [AXIS_Z]OUTPUT_SCALE
+
+net emcmot.01.pos-cmd axis.1.motor-pos-cmd => pid.1.command
+net motor.01.command  pid.1.output  =>  hm2_[HOSTMOT2](BOARD).0.pwmgen.07.value
+
+
+# ################
+# Z2 [2] Axis
+# ################
+
+# axis enable chain
+newsig emcmot.02.enable bit
+sets emcmot.02.enable FALSE
+net emcmot.02.enable => pid.2.enable
+net emcmot.02.enable => hm2_[HOSTMOT2](BOARD).0.pwmgen.06.enable
+net emcmot.02.enable <= axis.2.amp-enable-out 
+
+# encoder feedback
+setp hm2_[HOSTMOT2](BOARD).0.encoder.06.counter-mode 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.06.filter 1
+setp hm2_[HOSTMOT2](BOARD).0.encoder.06.index-invert 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.06.index-mask 0
+setp hm2_[HOSTMOT2](BOARD).0.encoder.06.index-mask-invert 0
+
+setp  hm2_[HOSTMOT2](BOARD).0.encoder.06.scale  [AXIS_Z]INPUT_SCALE
+net motor.02.pos-fb hm2_[HOSTMOT2](BOARD).0.encoder.06.position => pid.2.feedback
+net motor.02.pos-fb => axis.2.motor-pos-fb #push copy back to Axis GUI
+
+# set PID loop gains from inifile
+setp pid.2.Pgain [AXIS_Z]P
+setp pid.2.Igain [AXIS_Z]I
+setp pid.2.Dgain [AXIS_Z]D
+setp pid.2.bias [AXIS_Z]BIAS
+setp pid.2.FF0 [AXIS_Z]FF0
+setp pid.2.FF1 [AXIS_Z]FF1
+setp pid.2.FF2 [AXIS_Z]FF2
+setp pid.2.deadband [AXIS_Z]DEADBAND
+setp pid.2.maxoutput [AXIS_Z]MAX_OUTPUT
+
+# position command signals
+setp hm2_[HOSTMOT2](BOARD).0.pwmgen.06.output-type 1 #pwm on pin1, dir on pin2
+setp hm2_[HOSTMOT2](BOARD).0.pwmgen.06.scale [AXIS_Z]OUTPUT_SCALE
+
+net emcmot.02.pos-cmd axis.2.motor-pos-cmd => pid.2.command
+net motor.02.command  pid.2.output  =>  hm2_[HOSTMOT2](BOARD).0.pwmgen.06.value
+
+
+# ##################################################
+# Standard I/O Block - EStop, Etc
+# ##################################################
+
+# create a signal for the estop loopback
+net estop-loop iocontrol.0.user-enable-out => iocontrol.0.emc-enable-in
+
+# create signals for tool loading loopback
+net tool-prep-loop iocontrol.0.tool-prepare => iocontrol.0.tool-prepared
+net tool-change-loop iocontrol.0.tool-change => iocontrol.0.tool-changed
+
+
+#
+# homing
+#
+
+net home-switch-x <= hm2_[HOSTMOT2](BOARD).0.gpio.049.in_not
+net home-switch-x => axis.0.home-sw-in
+net x-index-enable <= axis.0.index-enable
+net x-index-enable => hm2_[HOSTMOT2](BOARD).0.encoder.05.index-enable
+net x-index-enable => pid.0.index-enable
+

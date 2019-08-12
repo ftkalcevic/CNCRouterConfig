@@ -1,0 +1,11 @@
+g64  ; exact stop
+f250
+o10 repeat [100]
+    g1 a0
+    g4 p.25  ; pause for a sec
+    g1 a10
+    g4 p.25
+    m1
+o10 endwhile
+m2
+

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/config/!svn/ver/13/cncrouter/trunk/nc_files
+END
+tune.ngc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/config/!svn/ver/17/cncrouter/trunk/nc_files/tune.ngc
+END
+3D_Chips.ngc
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/config/!svn/ver/17/cncrouter/trunk/nc_files/3D_Chips.ngc
+END
+travel.ngc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/config/!svn/ver/15/cncrouter/trunk/nc_files/travel.ngc
+END
+spindle_breaking.ngc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/config/!svn/ver/13/cncrouter/trunk/nc_files/spindle_breaking.ngc
+END
+examples
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/config/!svn/ver/13/cncrouter/trunk/nc_files/examples
+END

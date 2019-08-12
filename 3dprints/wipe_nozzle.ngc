@@ -1,0 +1,53 @@
+o<wipe_nozzle> sub
+
+#<WipeX>=203
+#<WipeY>=203
+#<WipeZ>=12
+#<WipeLength>=40
+#<RetractExtLength>=0
+#<WipeFreq>=5
+
+
+#4000=[#4000 + 1]
+;o10 if [ [#4000 MOD #<WipeFreq>] EQ 1 ]
+o10 if [ 0 EQ 1 ]
+
+    ; Wipe
+
+    ; Store position
+    G28.1
+    #<returnX> = [#5161 - #5221]
+    #<returnY> = [#5162 - #5222]
+    #<returnZ> = [#5163 - #5223]
+
+    ; Retract
+    G91
+    G0 a[-1 * #<RetractExtLength>]
+    G90
+    G0 z[#<returnZ> + 10.0]
+
+    ; goto wipe
+    G0 X#<WipeX> Y#<WipeY>
+    G0 Z#<WipeZ>
+
+    ; wipe
+    #4001=[#4001 + 1]
+    #<wipe_slot> = [ [ #4001 mod 5 ] * 3 ]
+    F3000
+    g0 X[#<WipeX> + #<wipe_slot>]
+    g0 Y[#<WipeY> + #<WipeLength>] 
+    G0 Y#<WipeY>
+    G0 X#<WipeX>
+
+    ; Return
+    G0 z[#<returnZ> + 10.0]
+    G0 x#<returnX> y#<returnY>
+    G0 z#<returnZ>
+    G91
+    G0 a[#<RetractExtLength>]
+    G90
+
+o10 endif
+o<wipe_nozzle> endsub
+M2
+
